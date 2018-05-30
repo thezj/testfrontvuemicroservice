@@ -9,8 +9,6 @@
     <br>
     <br>
     <div style="border:1px solid gray;margin:10px; padding:10px; height:500px; ">
-      {{variablecom}} ====
-      {{$testobj}}
       <keep-alive>
         <component :is="variablecom"></component>
       </keep-alive>
@@ -22,22 +20,24 @@
     data() {
       return {
         hello: "hello im appframe",
-        variablecom: "",
+        variablecom: null,
         allcomponent: [{
             name: 'comp1',
-            path: 'http://localhost:8082/comp1.js'
+            path: 'http://localhost:8001/comp1.js'
           },
           {
             name: 'comp2',
-            path: 'http://localhost:8083/comp2.js'
+            path: 'http://localhost:8002/comp2.js'
           }
         ]
       };
     },
     methods: {
       getcomp(comp) {
-        window.setcomponent = e => this.variablecom = comp.name
-        this.$getComp(comp)
+        //异步加载组件后这个组件自动已经出现在vue全局组件中，动态组件的名称不是一个字符串而是直接指向组件对象。
+        // window.setcomponent = e => this.variablecom = window[comp.name]
+        this.$getComp(comp,this)
+
       }
     }
   };

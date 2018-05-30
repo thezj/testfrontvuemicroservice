@@ -3,8 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
-        comp1: './src/index.js',
-        comp3: './src/index2.js'
+        comp1: './src/comp1.vue',
     },
     output: {
         filename: '[name].js',
