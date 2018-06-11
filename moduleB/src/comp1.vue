@@ -1,17 +1,16 @@
 <template>
   <div>
-    im comp2222222222
+    {{test}}
     <input type="text" v-model="test">
   </div>
 </template>
 <script>
-  window.comp2 = {
+  window.comp1 = {
     data() {
       return {
-        test: 222222222222
+        test: 'im comp1'
       };
     }
   };
-
-  export default comp2
+  export default comp1
 </script>

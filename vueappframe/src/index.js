@@ -2,9 +2,11 @@ import appframe from './appframe.vue'
 
 
 
+
 let readycomps = new Set()
 
 let currentloadcom = ''
+
 Vue.prototype.$getComp = (comp, framepage) => {
 
     currentloadcom = comp.name
@@ -41,7 +43,7 @@ Vue.prototype.$getComp = (comp, framepage) => {
 
 }
 
-let app = new Vue({
+window.app = new Vue({
     el: '#app',
     template: '<appframe />',
     components: {
